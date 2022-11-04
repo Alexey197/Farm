@@ -6,4 +6,4 @@ mainTitle.textContent = 'I love JavaScript';
 const JSImageHTML = document.createElement('img');
 JSImageHTML.src = JSImage;
 
-document.body.append(mainTitle, JSImageHTML);
+document.body.append(mainTitle, JSImageHTML)

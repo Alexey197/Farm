@@ -1,0 +1,16 @@
+{
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "google"],
+  "rules": {
+    "semi": "off",
+    "eol-last": "off"
+  }
+}
