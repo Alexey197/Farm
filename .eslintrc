@@ -11,6 +11,7 @@
   "extends": ["eslint:recommended", "google"],
   "rules": {
     "semi": "off",
-    "eol-last": "off"
+    "eol-last": "off",
+    "comma-dangle": "off"
   }
 }
