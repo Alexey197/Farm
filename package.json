@@ -3,22 +3,36 @@
     "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.6.0",
+    "eslint": "^8.26.0",
+    "eslint-config-google": "^0.14.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
-    "webpack": "^5.68.0",
-    "webpack-cli": "^4.9.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.7.4"
   },
   "name": "task_3",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
+    "start": "webpack serve --env development",
     "prod": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexey197/Farm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Alexey197/Farm/issues"
+  },
+  "homepage": "https://github.com/Alexey197/Farm#readme",
   "description": ""
 }
