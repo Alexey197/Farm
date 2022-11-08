@@ -29,7 +29,8 @@ body {
   display: flex;
   flex-direction: row;
   min-height: 20px;
-  height: 24px;
+  height: 40px;
+  text-align: center;
 }
 
 .rig__title {
@@ -41,7 +42,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 40px;
+  min-width: 165px;
   height: 100%;
   border: 1px solid #000;
   background: #f8f9fa;
@@ -70,6 +71,10 @@ body {
 }
 
 .cell {
+  display: flex; /*Центрирование по горизонтали*/
+  justify-content: center; /*Центрирование по горизонтали*/
+  align-items: center; /*Центрирование по горизонтали*/
+  flex-wrap: wrap;
   min-width: 40px;
   padding: 5px;
   width: 120px;
@@ -78,6 +83,7 @@ body {
   border-top: 0;
   border-left: 0;
   white-space: nowrap;
+  overflow: hidden;
   /*outline: none;*/
 }
 
