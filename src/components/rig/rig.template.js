@@ -12,19 +12,21 @@ function toColumn(col) {
   `
 }
 
-function createRow(index, content) {
+function createFirstRow(content) {
   return `
     <div class="row">
-      <div class="row-info">${index}</div>
+      <div class="row-number row-number__first"></div>
+      <div class="row-info row-info__first"></div>
       <div class="row-data">${content}</div>
     </div>
   `
 }
 
-function createFirstRow(content) {
+function createRow(info, content, index) {
   return `
     <div class="row">
-      <div class="row-info row-info__first"></div>
+      <div class="row-number">${index}</div>
+      <div class="row-info">${info}</div>
       <div class="row-data">${content}</div>
     </div>
   `
@@ -50,7 +52,7 @@ function createRig(rig, rigNumber = 1) {
         .fill('')
         .map(toCell)
         .join('')
-    rows.push(createRow(rig[i], cells))
+    rows.push(createRow(rig[i], cells, i))
   }
   
   return `
@@ -67,7 +69,6 @@ export function createRigs(farmer) {
     rigNumber = index + 1
     return createRig(el, rigNumber)
   })
-  console.log(farm)
   
   return farm.join('')
 }
