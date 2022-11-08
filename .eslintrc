@@ -1,5 +1,6 @@
 {
   "parserOptions": {
+    "ecmaVersion": "latest",
     "sourceType": "module",
     "allowImportExportEverywhere": true
   },
@@ -12,6 +13,10 @@
   "rules": {
     "semi": "off",
     "eol-last": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "no-trailing-spaces": "off",
+    "require-jsdoc": "off",
+    "arrow-parens": "off",
+    "operator-linebreak": "off"
   }
 }
