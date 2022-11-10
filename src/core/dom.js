@@ -39,6 +39,10 @@ class Dom {
     
     return this
   }
+  
+  get data() {
+    return this.$el.dataset
+  }
 }
 
 export function $(selector) {

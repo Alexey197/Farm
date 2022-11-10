@@ -1,14 +1,22 @@
 import {parameters} from '../../core/data'
 
-function toCell() {
-  return `
-    <div class="cell" contenteditable="true"></div>
+function toCell(row, rig) {
+  return function(_, col) {
+    return `
+    <div
+      class="cell"
+      contenteditable="true"
+      data-rig="${rig}"
+      data-row="${row}"
+      data-col="${col}">
+    </div>
   `
+  }
 }
 
-function toColumn(col) {
+function toColumn(col, index) {
   return `
-    <div class="column">${col}</div>
+    <div class="column" data-col="${index}">${col}</div>
   `
 }
 
@@ -32,8 +40,8 @@ function createRow(info, content, index) {
   `
 }
 
-function createRig(rig, rigNumber = 1) {
-  const rowsCount = rig.length
+function createRig(info, rigNumber = 1) {
+  const rowsCount = info.length
   const colsCount = parameters.length
   const rows = []
   
@@ -47,12 +55,12 @@ function createRig(rig, rigNumber = 1) {
   
   rows.push(createFirstRow(cols))
   
-  for (let i = 0; i < rowsCount; i++) {
+  for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(colsCount)
         .fill('')
-        .map(toCell)
+        .map(toCell(row, rigNumber))
         .join('')
-    rows.push(createRow(rig[i], cells, i))
+    rows.push(createRow(info[row], cells, row))
   }
   
   return `
