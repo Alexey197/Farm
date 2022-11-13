@@ -88,7 +88,6 @@ body {
   display: flex; /*Центрирование по горизонтали*/
   justify-content: center; /*Центрирование по горизонтали*/
   align-items: center; /*Центрирование по горизонтали*/
-  flex-wrap: wrap;
   min-width: 40px;
   padding: 5px;
   width: 120px;
