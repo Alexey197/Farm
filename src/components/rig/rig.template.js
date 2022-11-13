@@ -1,15 +1,18 @@
 import {parameters} from '../../core/data'
 
-function toCell(row, rig) {
+function toCell(state, row, rig) {
   return function(_, col) {
+    const id = `${rig}:${row}:${col}`
+    const data = state.dataState[id]
     return `
     <div
       class="cell"
       contenteditable="true"
       data-rig="${rig}"
       data-row="${row}"
-      data-col="${col}">
-    </div>
+      data-col="${col}"
+      data-id="${rig}:${row}:${col}"
+      >${data || ''}</div>
   `
   }
 }
@@ -40,7 +43,7 @@ function createRow(info, content, index) {
   `
 }
 
-function createRig(info, rigNumber = 1) {
+function createRig(info, rigNumber = 1, state = {}) {
   const rowsCount = info.length
   const colsCount = parameters.length
   const rows = []
@@ -58,7 +61,7 @@ function createRig(info, rigNumber = 1) {
   for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(colsCount)
         .fill('')
-        .map(toCell(row, rigNumber))
+        .map(toCell(state, row, rigNumber))
         .join('')
     rows.push(createRow(info[row], cells, row))
   }
@@ -71,11 +74,11 @@ function createRig(info, rigNumber = 1) {
   `
 }
 
-export function createRigs(farmer) {
+export function createRigs(farmer, state) {
   let rigNumber = 0
   const farm = farmer.map((el, index) => {
     rigNumber = index + 1
-    return createRig(el, rigNumber)
+    return createRig(el, rigNumber, state)
   })
   
   return farm.join('')

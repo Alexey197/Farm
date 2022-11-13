@@ -43,6 +43,28 @@ class Dom {
   get data() {
     return this.$el.dataset
   }
+  
+  text(text) {
+    if (typeof text === 'string') {
+      this.$el.textContent = text
+    }
+    if (this.$el.tagName.toLowerCase() === 'input') {
+      return this.$el.value.trim()
+    }
+    return this.$el.textContent.trim()
+  }
+  
+  id(parse) {
+    if (parse) {
+      const parsed = this.id().split(':')
+      return {
+        rig: parsed[0],
+        row: parsed[1],
+        col: parsed[2]
+      }
+    }
+    return this.data.id
+  }
 }
 
 export function $(selector) {

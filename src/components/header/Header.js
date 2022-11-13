@@ -1,26 +1,32 @@
 import {FarmComponent} from '../../core/FarmComponent'
+import {$} from '../../core/dom'
+import {changeTitle} from '../../core/redux/actions'
+import {defaultTitle} from '../../../constants'
 
 export class Header extends FarmComponent {
   static className = 'farm__header'
   
-  constructor($root) {
+  constructor($root, options) {
     super($root, {
       name: 'Header',
-      listeners: ['input', 'click']
+      listeners: ['input'],
+      ...options
     })
   }
   
   toHTML() {
+    const title = this.store.getState().title || defaultTitle
     return `
-      <input type="text"class="input" value="Новая монета" />
+      <input type="text"class="input" value="${title}" />
     `
   }
   
-  onInput(event) {
-    console.log('Header: onInput', event.target.value)
+  init() {
+    super.init()
   }
   
-  onClick(event) {
-    console.log('Header: onClick', event)
+  onInput(event) {
+    const $target = $(event.target)
+    this.$dispatch(changeTitle($target.text()))
   }
 }
