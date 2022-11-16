@@ -1,24 +1,9 @@
 import '../index.css';
-import {Farm} from './components/farm/Farm'
-import {Header} from './components/header/Header'
-import {Rig} from './components/rig/Rig'
-import {createStore} from './core/createStore'
-import {rootReducer} from './core/redux/rootReducer'
-import {storage, debounce} from './core/utils'
-import {initialState} from './core/redux/initialState'
+import {Router} from './core/routes/Router'
+import {DashboardPage} from './pages/DashboardPage'
+import {FarmPage} from './pages/FarmPage'
 
-const store = createStore(rootReducer, initialState)
-
-const stateListener = debounce(state => {
-  console.log('App State', state)
-  storage('farm-state', state)
-}, 300)
-
-store.subscribe(stateListener)
-
-const farm = new Farm('#app', {
-  components: [Header, Rig],
-  store
+new Router('#app', {
+  dashboard: DashboardPage,
+  farm: FarmPage
 })
-
-farm.render()

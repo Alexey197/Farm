@@ -1,4 +1,4 @@
-import {CHANGE_TEXT, CHANGE_TITLE} from './types'
+import {CHANGE_TEXT, CHANGE_TITLE, UPDATE_DATE} from './types'
 
 export function rootReducer(state, action) {
   let prevState
@@ -9,6 +9,8 @@ export function rootReducer(state, action) {
       return {...state, currentText: action.data.value, dataState: prevState}
     case CHANGE_TITLE:
       return {...state, title: action.data}
+    case UPDATE_DATE:
+      return {...state, openedDate: new Date().toJSON()}
     default: return state
   }
 }

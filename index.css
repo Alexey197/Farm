@@ -12,6 +12,36 @@ body {
   font-size: 16px;
 }
 
+.farm__header {
+  height: 60px;
+  width: 1055px;
+  padding: 8px 4px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.farm__header div {
+  display: flex;
+  align-items: center;
+}
+
+.material-icons {
+  cursor: pointer;
+}
+
+.input {
+  margin: 0;
+  padding: 2px 7px;
+  min-width: 1px;
+  color: #000;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  height: 20px;
+  font-size: 18px;
+  line-height: 22px;
+  outline: none;
+}
+
 .farm {
   display: flex;
   flex-direction: column;
@@ -141,7 +171,7 @@ body {
   text-align: center;
 }
 
-.db__crate:hover {
+.db__create:hover {
   cursor: pointer;
   color: green;
   border-color: green;
